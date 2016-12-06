@@ -84,11 +84,11 @@ class RestService
 
         if($error_number = curl_errno($curl)) {
             $error_msg = curl_strerror($error_number);
-            throw new AvaException("AddressServiceRest cURL error ({$error_number}): {$error_msg}", AvaException::CURL_ERROR);
+            throw new AvaException("cURL error ({$error_number}): {$error_msg}", AvaException::CURL_ERROR);
         }
 
         if(!$response) {
-            throw new AvaException('AddressServiceRest received empty result from API', AvaException::INVALID_API_RESPONSE);
+            throw new AvaException("Received empty result from API", AvaException::INVALID_API_RESPONSE);
         }
 
         curl_close($curl);
